@@ -1,40 +1,226 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jeff Wang's Personal Website</title>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    /> 
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">WebSiteName</a>
-        </div>
-        <ul class="nav navbar-nav"> 
-          <li><a href="./">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+    <div class="jumbotron text-center">
+      <h1>My First Bootstrap Page</h1>
+      <small>Resize this responsive page to see the effect!</small>
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
     </nav>
+    <!-- spinner button -->
 
-    <div class="container text-center">
-      <h3>Basic Navbar Example</h3>
-      <p>
-        A navigation bar is a navigation header that is placed at the top of the
-        page.
-      </p> 
-      <input type="button" class="btn btn-primary" value="click me" onclick="handleClick()">
-    </div> 
+    <button class="btn btn-primary m-3">
+      Loading... <span class="spinner-border spinner-border-sm"></span>
+    </button>
+
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled">
+        <a href="#" class="page-link">Previous</a>
+      </li>
+      <li class="page-item active"><a href="#" class="page-link">1</a></li>
+      <li class="page-item"><a href="#" class="page-link">2</a></li>
+      <li class="page-item"><a href="#" class="page-link">Next</a></li>
+    </ul>
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action">first item</a>
+      <a href="#" class="list-group-item list-group-item-action">second item</a>
+      <a href="#" class="list-group-item list-group-item-action">third item</a>
+      <button class="list-group-item list-group-item-action">forth item</button>
+    </div>
+
+    <div class="card text-center">
+      <img
+        class="card-img-bottom mx-auto"
+        style="width: 400px"
+        src="gnaclogo.png"
+        alt=""
+      />
+
+      <div class="card-header">This is card header</div>
+      <div class="card-body">
+        <h4 class="card-title">Title</h4>
+        <p class="card-text">this is text body</p>
+        <a href="" class="btn btn-primary">Contact me</a>
+      </div>
+      <div class="card-footer">This is card footer</div>
+    </div>
+
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Open
+      </button>
+      <div class="dropdown-menu">
+        <div class="dropdown-item">item 1</div>
+        <div class="dropdown-item">item 2</div>
+        <div class="dropdown-item">item 3</div>
+        <div class="dropdown-item">item 4</div>
+      </div>
+    </div>
+
+    <button
+      class="btn btn-outline-primary"
+      data-toggle="collapse"
+      data-target="#collapseContent"
+    >
+      Click to expand
+    </button>
+    <p class="collapse" id="collapseContent">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam doloremque
+      nesciunt similique quibusdam natus voluptates neque repellendus maxime
+      sit. Molestiae voluptate, culpa inventore ad natus voluptatum non rerum
+      sint amet.
+    </p>
+
+    <div id="accordianId">
+      <div class="card">
+        <div class="card-header">
+          <a href="#section1ContentId" data-toggle="collapse"> Section 1 </a>
+        </div>
+        <div id="section1ContentId" class="collapse" data-parent="#accordianId">
+          <div class="card-body">Section 1 content</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <a href="#section2ContentId" data-toggle="collapse"> Section 2 </a>
+        </div>
+        <div id="section2ContentId" class="collapse" data-parent="#accordianId">
+          <div class="card-body">Section 2 content</div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a data-toggle="tab" href="#tab1" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a data-toggle="tab" href="#tab2" class="nav-link">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a data-toggle="tab" href="#tab3" class="nav-link">Home</a>
+      </li>
+    </ul> 
+
+    <div class="tab-content">
+      <div class="tab-pane" id="tab1">ddddddasdfasdf</div>
+      <div class="tab-pane" id="tab2">ASGEA</div>
+      <div class="tab-pane" id="tab3">GEA</div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>About me</h3>
+          <h4>Photo of me</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+            aliquam unde ex obcaecati, natus quis sunt corporis impedit possimus
+            laudantium eum, voluptatibus eveniet repudiandae illum! Quae rem ea
+            magni voluptates.
+          </p>
+          <h3>Some Links</h3>
+          <p class="bg-secondary">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+            cupiditate natus delectus. Expedita provident mollitia, optio hic
+            voluptate, corrupti suscipit delectus dolores asperiores officiis
+            perferendis doloribus dignissimos at, eaque eum.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-uppercase">Title Heading</h3>
+          <h4>Title Description, Dec 7, 2017</h4>
+          <p class="bg-secondary">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos,
+            aliquam unde ex obcaecati, natus quis sunt corporis impedit possimus
+            laudantium eum, voluptatibus eveniet repudiandae illum! Quae rem ea
+            magni voluptates.
+          </p>
+          <p>Some Text..</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
+            delectus repellendus, aspernatur unde quas quis rem eum. Fugit,
+            nihil blanditiis.
+          </p>
+          <h3 class="text-uppercase">title heading</h3>
+          <h4>Title description, Sep 2, 2017</h4>
+          <p class="bg-secondary">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
+            iste ducimus sed odit accusantium odio blanditiis temporibus error
+            repudiandae? Dolorum similique rem suscipit exercitationem nam vero
+            impedit velit quas? Earum.
+          </p>
+          <p>Some text..</p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero
+            dolorum temporibus asperiores placeat enim quis maiores natus
+            repellat rem error!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-danger fade in show alert-dismissible">
+      <strong>Danger!</strong> This is a alert message!
+      <!-- <input type="button" class="close" value="&times" data-dismiss="alert" /> -->
+      <button class="close" data-dismiss="alert">&times</button>
+    </div>
+    <table class="table table-striped table-hover text-center">
+      <thead class="table-primary">
+        <th>Name</th>
+        <th>State</th>
+        <th>Occupation</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jeff</td>
+          <td>Ohio</td>
+          <td>Engineer</td>
+        </tr>
+        <tr>
+          <td>Kevin</td>
+          <td>Taiwan</td>
+          <td>Accountant</td>
+        </tr>
+        <tr>
+          <td>Rob</td>
+          <td>Georgia</td>
+          <td>Scientist</td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="" class="btn btn-lg btn-primary btn-block">Search</a>
+    <hr />
+    <div class="btn-group">
+      <button class="btn btn-primary">Sony</button>
+      <button
+        class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+        data-toggle="dropdown"
+      ></button>
+
+      <div class="dropdown-menu">
+        <div class="dropdown-item">Tablet</div>
+        <div class="dropdown-item">pc</div>
+      </div>
+    </div>
   </body>
-  <script>
-    function handleClick(){
-      alert("hello");
-    }
-  </script>
 </html>
