@@ -23,5 +23,31 @@
       contenteditable=""
       spellcheck="true"
     ></p>
+    <button onclick="saveToFile()">Download to File</button>
   </body>
+  <script>
+    function saveToFile(e) {
+      const fileContent = document.getElementById("myInput").innerHTML;
+      console.log([fileContent]);
+      const myBlob = new Blob([fileContent], { type: "text/html" });
+
+      const blobURL = URL.createObjectURL(myBlob);
+
+      const href = document.createElement("a");
+      href.href = blobURL;
+      href.download = "myBlob";
+      href.id = "download";
+
+      //document.getElementById("download").click();
+      // Dispatch click event on the link
+      // This is necessary as link.click() does not work on the latest firefox
+      href.dispatchEvent(
+        new MouseEvent("click", {
+          bubbles: true,
+          cancelable: true,
+          view: window,
+        })
+      );
+    } 
+  </script>
 </html>
