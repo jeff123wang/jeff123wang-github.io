@@ -4,3 +4,5 @@ async function test(){
   verse = await getData();
   console.log(verse);
 }
+
+test();
