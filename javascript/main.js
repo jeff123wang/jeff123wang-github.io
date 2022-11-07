@@ -21,3 +21,5 @@ function sketch_idnameofdiv(p) {
 }
 
 new p5(sketch_idnameofdiv, 'canvas');
+
+console.log(p5);
