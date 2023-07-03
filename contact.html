@@ -35,6 +35,19 @@
     <script src="assets/javascript/bootstrap/bootstrap.min.js"></script>
 </head>
 
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    #main-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 90%;
+    }
+</style>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(253, 210, 155);">
     <a class="navbar-brand" href="/"><img height="50" src="assets/images/site_logo.png" alt=""></a>
@@ -64,10 +77,10 @@
         </ul>
     </div>
 </nav>
-    <main>
-        <article><div class="row m-4">
+    <div id="main-wrapper">
+        <article style="flex:1"><div class="row m-4">
     <div class="col-sm-6">
-        <form>
+        <form id="signup">
             <div class="form-group">
                 <label for="exampleInputEmail1">Name*</label>
                 <div class="row">
@@ -103,16 +116,56 @@
     </div>
 </div>
 
-<script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    // Add Firebase products that you want to use
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js'
+    import { doc, collection, setDoc, getFirestore } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js'
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCK2YlDbooyWI-44AkvbgxZwYnf-8nRpd8",
+        authDomain: "studentlist2020.firebaseapp.com",
+        databaseURL: "https://studentlist2020.firebaseio.com",
+        projectId: "studentlist2020",
+        storageBucket: "studentlist2020.appspot.com",
+        messagingSenderId: "24698441274",
+        appId: "1:24698441274:web:70868cdef7049582576f03"
+    };
 
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // get user sign up infomation
+    const fm1 = document.getElementById("signup");
+    fm1.onsubmit = (e) => {
+        e.preventDefault();
+        const dbRef = collection(db, "users");
+        const data = {
+            firstname: "Jeff",
+            lastname: "wang",
+            email: "test@ABC.COM",
+            comment: "asdfasdf"
+        };
+        setDoc(dbRef, data)
+            .then(docRef => {
+                console.log("Document has been added successfully");
+            }).catch(error => {
+                console.log(error);
+            })
+    };
 </script></article>
-        <div class="footer text-center pb-1 fixed-bottom" style="background-color: rgb(253, 210, 155);color: rgb(239, 33, 95)">
+        <div class="footer text-center pb-1" style="background-color: rgb(253, 210, 155);color: rgb(239, 33, 95)">
 	<h4>Vivian Wu</h4>
 	<p>vjw2flower@gmail.com</p>
 	<p>(614) 301-0403</p>
 	<p>Powered By JW Automation Service</p>
 </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>

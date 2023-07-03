@@ -35,6 +35,19 @@
     <script src="assets/javascript/bootstrap/bootstrap.min.js"></script>
 </head>
 
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    #main-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 90%;
+    }
+</style>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(253, 210, 155);">
     <a class="navbar-brand" href="/"><img height="50" src="assets/images/site_logo.png" alt=""></a>
@@ -64,8 +77,8 @@
         </ul>
     </div>
 </nav>
-    <main>
-        <article><div class="row m-4">
+    <div id="main-wrapper">
+        <article style="flex:1"><div class="row m-4">
     <div class="col-sm-6 text-center"><img style="width:50%" src="assets/images/portrait_crop.png" alt=""></div>
     <div class="col-sm-6" style="color: #5f3914;">
         <h3><strong>About me</strong><br>
@@ -75,13 +88,14 @@
         </h3>
     </div>
 </div></article>
-        <div class="footer text-center pb-1 fixed-bottom" style="background-color: rgb(253, 210, 155);color: rgb(239, 33, 95)">
+        <div class="footer text-center pb-1" style="background-color: rgb(253, 210, 155);color: rgb(239, 33, 95)">
 	<h4>Vivian Wu</h4>
 	<p>vjw2flower@gmail.com</p>
 	<p>(614) 301-0403</p>
 	<p>Powered By JW Automation Service</p>
 </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>
