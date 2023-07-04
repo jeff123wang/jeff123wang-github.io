@@ -28,6 +28,16 @@
         .portfolio * {
             font-family: inherit;
         }
+
+        .pic-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%/3, max(64px, 100%/3)), 1fr));
+            align-items: center;
+        }
+
+        .pic-container img {
+            max-width: 100%; 
+        }
     </style>
     <script src="assets/javascript/jquery-2.2.0.min.js"></script>
     <script src="assets/javascript/jquery.cycle2.min.js"></script>
@@ -274,10 +284,11 @@
         addDoc(dbRef, data)
             .then(docRef => {
                 console.log("Document has been added successfully");
+                $('#myModal').modal('toggle');
             }).catch(error => {
                 console.log(error);
             });
-        $('#myModal').modal('toggle');
+
     };
 
     // add event handler to modal OK button
