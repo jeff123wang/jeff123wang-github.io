@@ -78,32 +78,129 @@
     </div>
 </nav>
     <div id="main-wrapper">
-        <article style="flex:1"><div class="row m-4">
+        <article style="flex:1"><style>
+    body {
+        font-family: 'Varela Round', sans-serif;
+    }
+
+    .modal-confirm {
+        color: #636363;
+        width: 325px;
+        font-size: 14px;
+    }
+
+    .modal-confirm .modal-content {
+        padding: 20px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .modal-confirm .modal-header {
+        border-bottom: none;
+        position: relative;
+    }
+
+    .modal-confirm h4 {
+        text-align: center;
+        font-size: 26px;
+        margin: 30px 0 -15px;
+    }
+
+    .modal-confirm .form-control,
+    .modal-confirm .btn {
+        min-height: 40px;
+        border-radius: 3px;
+    }
+
+    .modal-confirm .close {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+    }
+
+    .modal-confirm .modal-footer {
+        border: none;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 13px;
+    }
+
+    .modal-confirm .icon-box {
+        color: #fff;
+        position: absolute;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: -70px;
+        width: 95px;
+        height: 95px;
+        border-radius: 50%;
+        z-index: 9;
+        background: #82ce34;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .modal-confirm .icon-box i {
+        font-size: 58px;
+        position: relative;
+        top: 3px;
+    }
+
+    .modal-confirm.modal-dialog {
+        margin-top: 80px;
+    }
+
+    .modal-confirm .btn {
+        color: #fff;
+        border-radius: 4px;
+        background: #82ce34;
+        text-decoration: none;
+        transition: all 0.4s;
+        line-height: normal;
+        border: none;
+    }
+
+    .modal-confirm .btn:hover,
+    .modal-confirm .btn:focus {
+        background: #6fb32b;
+        outline: none;
+    }
+
+    .trigger-btn {
+        display: inline-block;
+        margin: 100px auto;
+    }
+</style>
+<div class="row m-4">
     <div class="col-sm-6">
         <form id="signup">
             <div class="form-group">
                 <label for="exampleInputEmail1">Name*</label>
                 <div class="row">
                     <div class="col">
-                        <input name="firstName" type="text" class="form-control" placeholder="First name">
+                        <input required name="firstName" type="text" class="form-control" placeholder="First name">
                     </div>
                     <div class="col">
-                        <input name="lastName" type="text" class="form-control" placeholder="Last name">
+                        <input required name="lastName" type="text" class="form-control" placeholder="Last name">
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1"
+                <input required name="email" type="email" class="form-control" id="exampleInputEmail1"
                     aria-describedby="emailHelp">
             </div>
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Message</label>
-                <textarea name="comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea required name="comment" class="form-control" id="exampleFormControlTextarea1"
+                    rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">
+                Submit</button>
         </form>
     </div>
     <div class="col-sm-6">
@@ -114,6 +211,26 @@
         <p>(614) 301-0403</p>
         <strong> My other portfolio website: </strong>
         <p><a href="https://behance.net/vivianw2">https://behance.net/vivianw2</a></p>
+    </div>
+</div>
+
+
+<div id="myModal" class="modal fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="material-icons"></i>
+                </div>
+                <h4 class="modal-title w-100">Awesome!</h4>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Your comment has been submitted!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -152,15 +269,21 @@
             lastname: formData.get("lastName"),
             email: formData.get("email"),
             comment: formData.get("comment")
-        }; 
+        };
 
         addDoc(dbRef, data)
             .then(docRef => {
                 console.log("Document has been added successfully");
             }).catch(error => {
                 console.log(error);
-            })
+            });
+        $('#myModal').modal('toggle');
     };
+
+    // add event handler to modal OK button
+    document.querySelector("#myModal button").addEventListener("click", () => {
+        window.location.reload();
+    });
 </script></article>
         <div class="footer text-center pb-1" style="background-color: rgb(253, 210, 155);color: rgb(239, 33, 95)">
 	<h4>Vivian Wu</h4>
