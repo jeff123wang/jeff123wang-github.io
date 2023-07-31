@@ -90,15 +90,39 @@
     </div>
 </nav>
     <div id="main-wrapper">
-        <article style="flex:1"><div class="container mt-3" style="color:#ef215f;font-family:'MilkyNice-Clean'">
-    I learned to bake starting from scratch from 2017 to current.
-    My bakery is called Vivian's Sweets.
+        <article style="flex:1"><style>
+    .bakery-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: stretch;
+        gap: 3px;
+        margin-bottom: 20px;
+    }
 
-    I can make cupcakes, cookies, brownies, and cookie bars so far, I am still learning to bake different kinds of cake,
-    including cheesecake.
+    .bakery-container img {
+        max-width: 100%;
+    }
+</style>
+<div class="container mt-3">
+    <div class="bakery-container">
+        <img src="assets/images/bakery/mint-cookie.png" alt="mint cookie">
+        <img src="assets/images/bakery/cake.png" alt="cake">
+        <img src="assets/images/bakery/cookie.png" alt="cookie">
+    </div>
+    <p style="color:#ef215f;font-family:'MilkyNice-Clean'">
+        I learned to bake starting from scratch from 2017 to current.
+        
+        My bakery is called Vivian's Sweets.
 
-    If you want to buy from my bakery, you can go to the website to buy.
+        I can make cupcakes, cookies, brownies, and cookie bars so far, I am still learning to bake different kinds of
+        cake,
+        including cheesecake.
 
+        If you want to buy from my bakery, you can go to the website to buy.
+    </p>
+    <button style="border:none; background-color: pink; display:block;margin: 0 auto; width:10%"
+        class="mb-1 btn btn-primary">
+        <a href="https://www.vivianwu.me/viviansweets/">Buy</a></button>
 </div></article>
         <div class="footer text-center pb-1" style="background-color: rgb(253, 210, 155);color: rgb(239, 33, 95)">
 	<h4>Vivian Wu</h4>
